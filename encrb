@@ -115,7 +115,7 @@ class Encrb:
 		# TODO check that running new enough encfs (old has bugs in --reverse mode)
 		print 'Paths to back up:', self.args[:-1]
 		print 'Destination:', self.destination
-		print 'Port:', self.option.port
+		print 'Port:', self.options.port
 		self.setup_once()
 		for p in self.args[:-1]:
 			if options.verify:
