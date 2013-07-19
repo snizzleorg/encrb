@@ -34,7 +34,7 @@ class Encrb:
 				destination = os.path.join(self.destination, friendlyname)
 				print 'Rsyncing encrypted "%s" to "%s"...' % (path, destination)
 				sys.stdout.flush()
-				subprocess.call(['rsync', '-avz', '--rsh=ssh -p"%s%"', % (self.options.port), '--delete-delay', '--bwlimit', str(self.options.bwlimit), tmpdir + '/', destination])
+				subprocess.call(['rsync', '-avz', '--rsh=ssh -p', str(self.options.port), '--delete-delay', '--bwlimit', str(self.options.bwlimit), tmpdir + '/', destination])
 			except KeyboardInterrupt, e:
 				print 'KeyboardInterrupt, sleeping 1 sec, then unmounting'
 				time.sleep(1)
@@ -99,7 +99,7 @@ class Encrb:
 		parser.add_option('-p', '--passfile', dest='passfile', default='~/.encfs-password', help='file containing encfs keyfile password [%default]')
 		parser.add_option('-b', '--bwlimit', dest='bwlimit', default=0, type='int', help='Bandwidth limit (KiB/s) for rsync [%default]')
 		parser.add_option('-v', '--verify', dest='verify', default=False, action="store_true", help="Instead of backing up, verify that the backups match sources")
-		parser.add_option('-P', '--port', dest='port', default=22, type='int', help="Port for ssh/rsync (default: 22)")
+		parser.add_option('-P', '--port', dest='port', default=22, type='int', help="Port for ssh/rsync  [%default]")
 
 		(options, args) = parser.parse_args()
 		self.options = options
