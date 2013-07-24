@@ -28,6 +28,8 @@ Usage
                             password]
       -b BWLIMIT, --bwlimit=BWLIMIT
                             Bandwidth limit (KiB/s) for rsync [0]
+      -P Port,    --port=Port
+                            specify port for rsync/ssh [22]
 
 Backing up keyfile and password
 -------------------------------
