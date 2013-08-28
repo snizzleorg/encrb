@@ -65,7 +65,7 @@ class Encrb:
 		tmpdirplain = tempfile.mkdtemp('-%s-plain' % friendlyname)
 		print 'Mounting "%s" sshfs read-only to "%s"...' % (mountpath, tmpdir)
 		try:
-			subprocess.check_call(['sshfs', ,'-p'+ str(self.options.port), '-o', 'ro', mountpath, tmpdir])
+			subprocess.check_call(['sshfs', '-p'+ str(self.options.port), '-o', 'ro', mountpath, tmpdir])
 
 			# create encfs mount
 			print 'Mounting encfs on "%s"...' % tmpdirplain
